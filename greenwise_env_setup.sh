@@ -38,4 +38,9 @@ source ~/.bashrc
 # Create a new virtual environment named greenwise
 mkvirtualenv -p $VIRTUALENVWRAPPER_PYTHON greenwise -a $PROJECT_DIR
 
+workon greenwise
+
+pip install pillow
+pip install automationhat
+
 echo "You can now activate the greenwise environment using 'workon greenwise'. To deactivate, use 'deactivate'."
