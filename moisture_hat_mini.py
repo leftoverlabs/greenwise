@@ -1,24 +1,50 @@
+#!/usr/bin/env python3
+
+import sys
 import time
+
 import automationhat
+from PIL import Image, ImageDraw
+import st7735
+
+print("""input.py
+
+This Automation HAT Mini example displays the status of
+the three 24V-tolerant digital inputs.
+
+Press CTRL+C to exit.
+""")
+
+# Create ST7735 LCD display class.
+disp = st7735.ST7735(
+    port=0,
+    cs=st7735.BG_SPI_CS_FRONT,
+    dc=9,
+    backlight=25,
+    rotation=270,
+    spi_speed_hz=4000000
+)
+
+# Initialize display.
+disp.begin()
 
 
-# Adjust this function to convert the analog reading (0.0 to 1.0)
-# to a humidity reading (0% to 100%), based on the humidity sensor's datasheet
 def convert_to_humidity(analog_value):
     return analog_value * 100.0
 
 
 while True:
-    # Read the value from ADC 1, returns a value between 0.0 and 1.0
     adc_value = automationhat.analog.one.read()
-    # Convert this into a humidity reading
-    humidity = convert_to_humidity(adc_value)
+    humidity = int(convert_to_humidity(adc_value))
 
-    print(f'The humidity level is: {humidity}%')
+    # Open our background image.
+    image = Image.open("images/inputs-blank.jpg")
+    draw = ImageDraw.Draw(image)
 
-    # Update display on the Automation HAT
-    automationhat.display.oled.write(f"Humidity: {humidity:2.2f}%")
-    automationhat.display.oled.show()
+    # Draw humidity value
+    draw.text((10, 10), f"Humidity: {humidity}%", fill="white")
 
-    # Wait for a while before the next reading, no need to read the sensor continuously
-    time.sleep(1)
+    # Draw the image to the display
+    disp.display(image)
+
+    time.sleep(0.25)
