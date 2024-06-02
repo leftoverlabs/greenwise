@@ -4,18 +4,16 @@
 PROJECT_DIR=~/greenwise
 
 # Update package list
-# sudo apt-get update
+sudo apt-get update
 
-# Check if the virtualenv module is installed
-virtualenv --version &>/dev/null
-if [ $? -ne 0 ]; then
+# Install python3 virtualenv if needed
+if ! command -v virtualenv >/dev/null; then
     echo "virtualenv not found. Installing virtualenv..."
     sudo apt-get install -y python3-virtualenv
 fi
 
-# Check if the virtualenvwrapper module is installed
-source /usr/local/bin/virtualenvwrapper.sh &>/dev/null
-if [ $? -ne 0 ]; then
+# Install virtualenvwrapper if needed
+if ! command -v virtualenvwrapper >/dev/null; then
     echo "virtualenvwrapper not found. Installing virtualenvwrapper..."
     sudo apt-get install -y virtualenvwrapper
 fi
@@ -24,8 +22,8 @@ fi
 export WORKON_HOME=~/.virtualenvs
 export VIRTUALENVWRAPPER_PYTHON=$(which python3)
 
-# Source the virtualenvwrapper.sh script
-source /usr/local/bin/virtualenvwrapper.sh
+# Source the virtualenvwrapper script
+source /usr/share/virtualenvwrapper/virtualenvwrapper.sh  # adjusted path
 
 # Create a new virtual environment named greenwise
 mkvirtualenv greenwise -a $PROJECT_DIR
