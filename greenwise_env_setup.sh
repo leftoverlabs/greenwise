@@ -4,7 +4,7 @@
 PROJECT_DIR=~/greenwise
 
 # Update package list
-sudo apt-get update
+# sudo apt-get update
 
 # Install python3 virtualenv if needed
 if ! command -v virtualenv >/dev/null; then
@@ -18,14 +18,24 @@ if ! command -v virtualenvwrapper >/dev/null; then
     sudo apt-get install -y virtualenvwrapper
 fi
 
-# set up virtualenvwrapper environment variables
-export WORKON_HOME=~/.virtualenvs
-export VIRTUALENVWRAPPER_PYTHON=$(which python3)
+# Source the virtualenvwrapper script and set environment variables
+if ! grep -q 'export WORKON_HOME=$HOME/.virtualenvs' ~/.bashrc ; then
+	echo 'export WORKON_HOME=$HOME/.virtualenvs' >> ~/.bashrc
+fi
 
-# Source the virtualenvwrapper script
-source /usr/share/virtualenvwrapper/virtualenvwrapper.sh  # adjusted path
+VIRTUALENVWRAPPER_PYTHON=$(which python3)
+if ! grep -q "export VIRTUALENVWRAPPER_PYTHON=$VIRTUALENVWRAPPER_PYTHON" ~/.bashrc ; then
+	 echo "export VIRTUALENVWRAPPER_PYTHON=$VIRTUALENVWRAPPER_PYTHON" >> ~/.bashrc
+fi
+
+if ! grep -q 'source /usr/share/virtualenvwrapper/virtualenvwrapper.sh' ~/.bashrc ; then
+	echo 'source /usr/share/virtualenvwrapper/virtualenvwrapper.sh' >> ~/.bashrc
+fi
+
+# reload .bashrc so that changes take effect in the current session
+source ~/.bashrc
 
 # Create a new virtual environment named greenwise
-mkvirtualenv greenwise -a $PROJECT_DIR
+mkvirtualenv -p $VIRTUALENVWRAPPER_PYTHON greenwise -a $PROJECT_DIR
 
 echo "You can now activate the greenwise environment using 'workon greenwise'. To deactivate, use 'deactivate'."
