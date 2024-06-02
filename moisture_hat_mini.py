@@ -43,7 +43,7 @@ while True:
 
     # Create a blank image with a white background
     image = Image.new("RGB", (disp.width, disp.height), "white")
-    draw = ImageDraw.Draw(image
+    draw = ImageDraw.Draw(image)
 
     # Draw humidity value
     draw.text((10, 10), f"Humidity: {humidity}%", fill="black")
