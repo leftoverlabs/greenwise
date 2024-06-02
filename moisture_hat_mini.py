@@ -25,24 +25,28 @@ disp = st7735.ST7735(
     spi_speed_hz=4000000
 )
 
+
 # Initialize display.
 disp.begin()
 
 
 def convert_to_humidity(analog_value):
-    return analog_value * 100.0
+    min_value = 1.05  # value when the sensor is fully submerged
+    max_value = 2.09  # value when the sensor is fully unsubmerged and dry
+    return ((analog_value - min_value) / (max_value - min_value)) * 100.0
+
 
 
 while True:
     adc_value = automationhat.analog.one.read()
     humidity = int(convert_to_humidity(adc_value))
 
-    # Open our background image.
-    image = Image.open("images/inputs-blank.jpg")
-    draw = ImageDraw.Draw(image)
+    # Create a blank image with a white background
+    image = Image.new("RGB", (disp.width, disp.height), "white")
+    draw = ImageDraw.Draw(image
 
     # Draw humidity value
-    draw.text((10, 10), f"Humidity: {humidity}%", fill="white")
+    draw.text((10, 10), f"Humidity: {humidity}%", fill="black")
 
     # Draw the image to the display
     disp.display(image)
