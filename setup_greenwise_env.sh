@@ -3,6 +3,9 @@
 # define location where the virtual environment will be created
 PROJECT_DIR=~/greenwise
 
+# Update package list
+# sudo apt-get update
+
 # Check if the virtualenv module is installed
 virtualenv --version &>/dev/null
 if [ $? -ne 0 ]; then
@@ -11,16 +14,20 @@ if [ $? -ne 0 ]; then
 fi
 
 # Check if the virtualenvwrapper module is installed
-source /usr/share/virtualenvwrapper/virtualenvwrapper_lazy.sh &>/dev/null
+source /usr/local/bin/virtualenvwrapper.sh &>/dev/null
 if [ $? -ne 0 ]; then
     echo "virtualenvwrapper not found. Installing virtualenvwrapper..."
     sudo apt-get install -y virtualenvwrapper
 fi
 
-# Source the virtualenvwrapper_lazy.sh script
-source /usr/share/virtualenvwrapper/virtualenvwrapper_lazy.sh
+# set up virtualenvwrapper environment variables
+export WORKON_HOME=~/.virtualenvs
+export VIRTUALENVWRAPPER_PYTHON=$(which python3)
+
+# Source the virtualenvwrapper.sh script
+source /usr/local/bin/virtualenvwrapper.sh
 
 # Create a new virtual environment named greenwise
-mkvirtualenv --python=$(which python3) greenwise -a $PROJECT_DIR
+mkvirtualenv greenwise -a $PROJECT_DIR
 
-echo "You can now activate the greenwise environment (which is now associated with your project) using 'workon greenwise'. To deactivate, use 'deactivate'."
+echo "You can now activate the greenwise environment using 'workon greenwise'. To deactivate, use 'deactivate'."
