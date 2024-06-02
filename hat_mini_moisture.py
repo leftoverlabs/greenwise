@@ -33,8 +33,8 @@ disp.begin()
 def convert_to_humidity(analog_value):
     min_value = 1.05  # value when the sensor is fully submerged
     max_value = 2.09  # value when the sensor is fully unsubmerged and dry
-    return ((analog_value - min_value) / (max_value - min_value)) * 100.0
-
+    # We invert the output here 
+    return 100 - ((analog_value - min_value) / (max_value - min_value)) * 100.0
 
 
 while True:
