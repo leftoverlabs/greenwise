@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Set your WLAN country
-echo "Setting WLAN country"
-sudo raspi-config nonint do_wifi_country CY
+read -p 'Enter WLAN country - e.g. CY for Cyprus' wlan_country
+sudo raspi-config nonint do_wifi_country $wlan_country
 
 # Check Wi-Fi is enabled
 wifi_status=$(nmcli radio wifi)
