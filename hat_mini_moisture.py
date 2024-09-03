@@ -15,7 +15,7 @@ disp = st7735.ST7735(
     dc=9,
     backlight=25,
     rotation=270,
-    spi_speed_hz=4000000
+    spi_speed_hz=1000000
 )
 
 
