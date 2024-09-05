@@ -41,7 +41,7 @@ fi
 source ~/.bashrc
 
 # Create a new virtual environment named greenwise
-mkvirtualenv -p $VIRTUALENVWRAPPER_PYTHON greenwise -a ~/greenwise
+mkvirtualenv greenwise -a ~/greenwise -p $VIRTUALENVWRAPPER_PYTHON
 
 workon greenwise
 
