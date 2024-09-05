@@ -19,8 +19,8 @@ if ! command -v virtualenvwrapper >/dev/null; then
 fi
 
 # Source the virtualenvwrapper script and set environment variables
-if ! grep -q 'export WORKON_HOME=$HOME/.virtualenvs' ~/.bashrc ; then
-	echo 'export WORKON_HOME=$HOME/.virtualenvs' >> ~/.bashrc
+if ! grep -q 'export WORKON_HOME=~/.virtualenvs' ~/.bashrc ; then
+	echo 'export WORKON_HOME=~/.virtualenvs' >> ~/.bashrc
 fi
 
 VIRTUALENVWRAPPER_PYTHON=$(which python3)
