@@ -5,6 +5,11 @@ PROJECT_DIR=~/greenwise
 
 # Update package list
 # sudo apt-get update
+# Enable SPI
+sudo raspi-config nonint do_spi 0
+
+# Enable I2C
+sudo raspi-config nonint do_i2c 0
 
 # Install python3 virtualenv if needed
 if ! command -v virtualenv >/dev/null; then
