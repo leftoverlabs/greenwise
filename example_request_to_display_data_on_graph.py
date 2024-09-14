@@ -14,7 +14,7 @@ headers = {
 
 # Sensor data
 data = {
-    "graph_value": "your_sensor_value",
+    "sensor_value": "your_sensor_value",
     "timestamp": "YYYY-MM-DDTHH:MM:SSZ"
 }
 
