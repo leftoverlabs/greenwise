@@ -14,8 +14,7 @@ headers = {
 
 # Sensor data
 data = {
-    "sensor_value": "your_sensor_value",
-    "timestamp": "YYYY-MM-DDTHH:MM:SSZ"
+    "sensor_value": "10"
 }
 
 # Send POST request
