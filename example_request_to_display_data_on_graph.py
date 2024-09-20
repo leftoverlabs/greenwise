@@ -3,7 +3,7 @@ import json
 from datetime import datetime
 
 # API endpoint
-url = "https://api.leftoverlabs.com/graph/data/submit/"
+url = "https://api.leftoverlabs.com/graph/data/create/"
 
 # Headers
 headers = {
