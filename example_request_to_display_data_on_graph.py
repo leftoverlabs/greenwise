@@ -1,5 +1,4 @@
 import requests
-import json
 from datetime import datetime
 
 # API endpoint
@@ -18,7 +17,7 @@ data = {
 }
 
 # Send POST request
-response = requests.post(url, headers=headers, data=json.dumps(data))
+response = requests.post(url, headers=headers, json=data)
 
 # Check response
 if response.status_code == 200:
