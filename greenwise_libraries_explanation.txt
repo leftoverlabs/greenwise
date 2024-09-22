@@ -1,0 +1,30 @@
+How To Install Python:
+
+Visit the official Python website at www.python.org.
+
+Go to the "Downloads" section and click on the version you wish to install, the system will automatically recognize your OS.
+Once the executable file is downloaded, run it. In the first installation window, make sure you check the box "Add Python to PATH" before clicking "Install Now".
+Wait until the setup finishes, then click the “Install Now” button.
+
+To verify if Python is installed:
+Open Command Prompt or PowerShell in Windows 11.
+
+Type python --version and press Enter.
+
+If Python is installed correctly, the console will print the Python version.
+
+Installing Python Libraries:
+To install Python Libraries, you can use pip, which is a package installer for Python. The installation command usually follows this format: pip install library-name.
+
+For example:
+
+- To install Pillow, the command is: pip install Pillow
+- To install automationhat, the command is: pip install automationhat
+- To install st7735, the command is: pip install st7735
+
+These commands should be entered and executed in your console.
+
+About the Libraries:
+-Pillow: This is a fork of the Python Imaging Library (PIL). It adds some user-friendly features to PIL, such as easier installation, support for a broader range of images, and better support for various operating systems.
+-automationhat: This library is used in conjunction with the Automation HAT, a hardware accessory for the Raspberry Pi that allows you to control motors, read sensors, and other hardware-related tasks.
+-st7735: This is a Python library for the ST7735 series of TFT LCD displays. You can use this library to control the display on a Raspberry Pi or other microcontrollers.
