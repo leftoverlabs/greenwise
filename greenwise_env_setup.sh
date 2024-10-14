@@ -2,6 +2,7 @@
 
 # Define location where the virtual environment will be created
 PROJECT_DIR=~/greenwise
+mkdir $PROJECT_DIR
 
 # Update package list
 sudo apt-get update
