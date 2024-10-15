@@ -1,2 +1,2 @@
 humidity_adc_value = automationhat.analog.one.read()
-print(humidity)
+print(humidity_adc_value)
