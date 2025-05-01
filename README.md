@@ -16,6 +16,19 @@ These code examples demonstrate practical implementations used for educational a
 ### Usage
 Clone the repository:
 
-bash
 git clone https://github.com/leftoverlabs/greenwise.git
 cd greenwise
+
+### License 📄
+
+Distributed under the MIT License. See LICENSE for details.
+
+### Erasmus+ Notice 🌍
+
+This project is funded by Erasmus+. The European Commission is not responsible for any use of the provided information.
+
+### Contributing 🖥️
+
+Contributions are welcome—open an issue or submit a pull request!
+
+Visit leftoverlabs.com/projects/greenwise for more information.
