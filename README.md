@@ -31,4 +31,7 @@ This project is funded by Erasmus+. The European Commission is not responsible f
 
 Contributions are welcome—open an issue or submit a pull request!
 
-Visit https://leftoverlabs.com/projects/greenwise for more information.
+Visit 
+https://leftoverlabs.com/projects/greenwise or https://green-wise.eu
+
+for more information.
